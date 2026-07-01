@@ -1,0 +1,6 @@
+# nasvcs compose example
+services:
+  nasvcs:
+    build: .
+    # image: ghcr.io/jabenninghoff/nasvcs:latest
+    restart: unless-stopped
