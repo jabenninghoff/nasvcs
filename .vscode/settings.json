@@ -1,11 +1,8 @@
 {
     "cSpell.words": [
-        "hostkeys",
         "jabenninghoff",
         "lighttpd",
         "nasvcs",
-        "rootfs",
-        "runit",
-        "runsvdir"
+        "runit"
     ]
 }
