@@ -8,5 +8,7 @@ ARG NASVCS_VERSION
 ENV NASVCS_VERSION="${NASVCS_VERSION}"
 COPY rootfs/ /
 
+VOLUME [ "/opt/nasvcs/etc/ssh" ]
+
 ENTRYPOINT [ "/opt/nasvcs/sbin/docker-entrypoint.sh" ]
-CMD [ "sleep", "inf" ]
+CMD [ "runsvdir", "-P", "/opt/nasvcs/runit" ]
