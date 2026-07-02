@@ -4,6 +4,7 @@ RUN apk upgrade --no-cache
 
 ARG NASVCS_VERSION
 ENV NASVCS_VERSION="${NASVCS_VERSION}"
-COPY nasvcs/ /opt/nasvcs/
+COPY rootfs/ /
 
-ENTRYPOINT [ "/opt/nasvcs/docker-entrypoint.sh" ]
+ENTRYPOINT [ "/opt/nasvcs/sbin/docker-entrypoint.sh" ]
+CMD [ "sleep", "inf" ]
