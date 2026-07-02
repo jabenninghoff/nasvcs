@@ -3,5 +3,6 @@
 # requires: docker-build.sh
 ./apk-list.sh && \
 ./startup.sh && \
+./docker-header.sh && \
 ./apk-upgrade.sh && \
 echo "" && echo "all tests passed!"

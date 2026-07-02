@@ -13,3 +13,13 @@ Pull the latest (stable) image using:
 ```sh
 docker pull ghcr.io/jabenninghoff/nasvcs
 ```
+
+## CVS
+
+## Git
+
+## lighttpd
+
+## OpenSSH
+
+## runit
