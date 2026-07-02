@@ -8,5 +8,10 @@ services:
       args:
         - NASVCS_VERSION=0.0.1-dev
     restart: unless-stopped
+    hostname: nasvcs.test
+    ports:
+      - "22:22"
     volumes:
-      - ./hostkeys:/opt/nasvcs/etc/ssh
+      - ./cvs:/opt/nasvcs/cvs
+      - ./git:/opt/nasvcs/git
+      - ./sshkeys:/opt/nasvcs/etc/ssh
