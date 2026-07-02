@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /usr/sbin/sshd -D -e
+exec /usr/sbin/sshd -D -e 2>&1 | ts '%Y-%m-%dT%H:%M:%S%z sshd:'
