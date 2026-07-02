@@ -8,3 +8,5 @@ services:
       args:
         - NASVCS_VERSION=0.0.1-dev
     restart: unless-stopped
+    volumes:
+      - ./hostkeys:/opt/nasvcs/etc/ssh
