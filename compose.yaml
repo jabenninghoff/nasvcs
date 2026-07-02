@@ -1,6 +1,10 @@
 # nasvcs compose example
 services:
   nasvcs:
-    build: .
     # image: ghcr.io/jabenninghoff/nasvcs:latest
+    image: nasvcs:dev
+    build:
+      context: .
+      args:
+        - NASVCS_VERSION=0.0.1-dev
     restart: unless-stopped
