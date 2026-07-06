@@ -1,4 +1,3 @@
 # ignore compose test files
-cvs
-git
 sshkeys
+vcs

@@ -8,15 +8,13 @@ ARG NASVCS_VERSION
 ENV NASVCS_VERSION="${NASVCS_VERSION}"
 COPY rootfs/ /
 
-RUN mkdir -p /opt/nasvcs/cvs && \
-    mkdir -p /opt/nasvcs/git && \
-    mkdir -p /opt/nasvcs/vcs && \
+RUN mkdir -p /opt/nasvcs/vcs && \
     addgroup --gid 5000 vcs && \
-    adduser --ingroup vcs --uid 5000 --home /opt/nasvcs/vcs --disabled-password --gecos "" vcs && \
-    chown vcs:vcs /opt/nasvcs/cvs /opt/nasvcs/git /opt/nasvcs/vcs
+    adduser --ingroup vcs --uid 5000 --disabled-password vcs && \
+    chown vcs:vcs /opt/nasvcs/vcs
 
 EXPOSE 22
-VOLUME [ "/opt/nasvcs/cvs", "/opt/nasvcs/git", "/opt/nasvcs/etc/ssh" ]
+VOLUME [ "/opt/nasvcs/vcs", "/opt/nasvcs/etc/ssh" ]
 
 ENTRYPOINT [ "/opt/nasvcs/sbin/docker-entrypoint.sh" ]
 CMD [ "runsvdir", "-P", "/opt/nasvcs/runit" ]
