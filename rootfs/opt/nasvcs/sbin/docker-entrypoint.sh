@@ -7,6 +7,17 @@ entrypoint_log() {
 
 entrypoint_log "version ${NASVCS_VERSION:-unknown} starting"
 
+# shellcheck disable=SC3028
+entrypoint_log "using HOSTNAME ${HOSTNAME:-unknown}"
+
+if [ -z "${NASVCS_GIT_PROJECTROOT}" ]
+then
+    export NASVCS_GIT_PROJECTROOT='/opt/nasvcs/vcs/git'
+    entrypoint_log "warning: NASVCS_GIT_PROJECTROOT not set, using default ${NASVCS_GIT_PROJECTROOT}"
+fi
+
+entrypoint_log "using NASVCS_GIT_PROJECTROOT ${NASVCS_GIT_PROJECTROOT}"
+
 if [ ! -f /opt/nasvcs/etc/ssh/ssh_host_ecdsa_key ] || \
    [ ! -f /opt/nasvcs/etc/ssh/ssh_host_ed25519_key ] || \
    [ ! -f /opt/nasvcs/etc/ssh/ssh_host_rsa_key ]
@@ -34,5 +45,8 @@ for dir in /opt/nasvcs/vcs/*; do
         entrypoint_log "error creating symbolic link /$(basename "$dir") -> $dir"
     fi
 done
+
+entrypoint_log "initializing lighttpd log"
+touch /var/log/lighttpd/access.log && chown lighttpd:lighttpd /var/log/lighttpd/access.log
 
 exec "$@"

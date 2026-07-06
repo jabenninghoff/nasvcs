@@ -11,6 +11,9 @@ services:
     hostname: nasvcs.test
     ports:
       - "22:22"
+      - "80:80"
     volumes:
       - ./sshkeys:/opt/nasvcs/etc/ssh
       - ./vcs:/opt/nasvcs/vcs
+    environment:
+      - NASVCS_GIT_PROJECTROOT=/opt/nasvcs/vcs/git
