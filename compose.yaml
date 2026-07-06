@@ -12,6 +12,5 @@ services:
     ports:
       - "22:22"
     volumes:
-      - ./cvs:/opt/nasvcs/cvs
-      - ./git:/opt/nasvcs/git
       - ./sshkeys:/opt/nasvcs/etc/ssh
+      - ./vcs:/opt/nasvcs/vcs
