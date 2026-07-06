@@ -1,0 +1,2 @@
+#!/bin/sh
+exec tail -f /var/log/lighttpd/access.log
