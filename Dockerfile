@@ -6,6 +6,9 @@ RUN apk upgrade --no-cache && apk add --no-cache cvs git git-gitweb lighttpd mor
 
 ARG NASVCS_VERSION
 ENV NASVCS_VERSION="${NASVCS_VERSION}"
+
+# save alpine default lighttpd configuration for snapshot testing
+RUN cp -p /etc/lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf.dist
 COPY rootfs/ /
 
 RUN mkdir -p /opt/nasvcs/vcs && \

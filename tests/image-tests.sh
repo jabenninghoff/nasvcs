@@ -3,6 +3,7 @@
 # requires: docker-build.sh
 ./apk-list.sh && \
 ./sshd-defaults.sh && \
+./lighttpd-defaults.sh && \
 ./startup.sh && \
 ./docker-header.sh && \
 ./apk-upgrade.sh && \
