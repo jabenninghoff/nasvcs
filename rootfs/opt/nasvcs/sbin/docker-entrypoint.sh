@@ -14,9 +14,14 @@ if [ -z "${NASVCS_GIT_PROJECTROOT}" ]
 then
     export NASVCS_GIT_PROJECTROOT='/opt/nasvcs/vcs/git'
     entrypoint_log "warning: NASVCS_GIT_PROJECTROOT not set, using default ${NASVCS_GIT_PROJECTROOT}"
+else
+    entrypoint_log "using NASVCS_GIT_PROJECTROOT ${NASVCS_GIT_PROJECTROOT}"
 fi
 
-entrypoint_log "using NASVCS_GIT_PROJECTROOT ${NASVCS_GIT_PROJECTROOT}"
+if [ ! -d "${NASVCS_GIT_PROJECTROOT}" ] || [ -z "$(ls "${NASVCS_GIT_PROJECTROOT}")" ]
+then
+    entrypoint_log "warning: NASVCS_GIT_PROJECTROOT directory does not exist or is empty"
+fi
 
 if [ ! -f /opt/nasvcs/etc/ssh/ssh_host_ecdsa_key ] || \
    [ ! -f /opt/nasvcs/etc/ssh/ssh_host_ed25519_key ] || \
@@ -29,7 +34,7 @@ fi
 
 if [ ! -s /opt/nasvcs/etc/ssh/authorized_keys ]
 then
-    entrypoint_log "warning: authorized_keys file not found or empty"
+    entrypoint_log "warning: authorized_keys file does not exist or is empty"
 fi
 
 entrypoint_log "enabling vcs user with a random password"
