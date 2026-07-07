@@ -4,6 +4,7 @@
 ./apk-list.sh && \
 ./sshd-defaults.sh && \
 ./lighttpd-defaults.sh && \
+./viewvc-defaults.sh && \
 ./startup.sh && \
 ./docker-header.sh && \
 ./apk-upgrade.sh && \
