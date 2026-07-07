@@ -53,9 +53,9 @@ then
 fi
 
 entrypoint_log "enabling vcs user with a random password"
- PW="$(head -c 32 /dev/urandom | base64)"
- printf '%s\n%s\n' "$PW" "$PW" | passwd vcs >/dev/null 2>&1
- unset PW
+PW="$(head -c 32 /dev/urandom | base64)"
+printf '%s\n%s\n' "$PW" "$PW" | passwd vcs >/dev/null 2>&1
+unset PW
 
 entrypoint_log "creating symbolic links for vcs project roots"
 for dir in /opt/nasvcs/vcs/*; do
