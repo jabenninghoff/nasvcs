@@ -19,6 +19,7 @@ RUN cp -p /etc/lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf.dist
 COPY rootfs/ /
 
 # download, install and configure viewvc
+# TODO: add sha256 verification for downloaded viewvc tarball
 ARG VIEWVC_VERSION=1.3.0
 RUN cd /tmp && \
     wget https://github.com/viewvc/viewvc/releases/download/${VIEWVC_VERSION}/viewvc-${VIEWVC_VERSION}.tar.gz && \
