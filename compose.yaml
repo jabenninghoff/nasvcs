@@ -17,4 +17,4 @@ services:
       - ./vcs:/opt/nasvcs/vcs
     environment:
       - NASVCS_GIT_PROJECTROOT=/opt/nasvcs/vcs/git
-      - NASVCS_VIEWVC_MIME_TYPE_WORKAROUND="json php xsl yaml yml"
+      - NASVCS_VIEWVC_MIME_TYPE_WORKAROUND=json php xsl yaml yml

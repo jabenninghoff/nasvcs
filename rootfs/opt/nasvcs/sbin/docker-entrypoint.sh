@@ -25,12 +25,16 @@ fi
 
 # TODO: workaround for missing hyperlinks in directory listing for application/* MIME types (json php xsl yaml yml)
 # upstream issue: https://github.com/viewvc/viewvc/issues/407
-if [ ! -z "${NASVCS_VIEWVC_MIME_TYPE_WORKAROUND}" ]
+if [ -n "${NASVCS_VIEWVC_MIME_TYPE_WORKAROUND}" ]
 then
-    entrypoint_log "applying NASVCS_VIEWVC_MIME_TYPE_WORKAROUND"
-    entrypoint_log "setting ViewVC MIME_TYPE \"text/x-workaround ${NASVCS_VIEWVC_MIME_TYPE_WORKAROUND}\""
-    sed -i 's/^#mime_types_files = mimetypes.conf/mime_types_files = mimetypes.conf/' /opt/nasvcs/viewvc/viewvc.conf
-    echo "text/x-workaround ${NASVCS_VIEWVC_MIME_TYPE_WORKAROUND}" >> /opt/nasvcs/viewvc/mimetypes.conf
+    workaround="text/x-workaround ${NASVCS_VIEWVC_MIME_TYPE_WORKAROUND}"
+    if ! grep -qxF "$workaround" /opt/nasvcs/viewvc/mimetypes.conf
+    then
+        entrypoint_log "applying NASVCS_VIEWVC_MIME_TYPE_WORKAROUND"
+        entrypoint_log "setting ViewVC MIME_TYPE \"text/x-workaround ${NASVCS_VIEWVC_MIME_TYPE_WORKAROUND}\""
+        sed -i 's/^#mime_types_files = mimetypes.conf/mime_types_files = mimetypes.conf/' /opt/nasvcs/viewvc/viewvc.conf
+        echo "$workaround" >> /opt/nasvcs/viewvc/mimetypes.conf
+    fi
 fi
 
 if [ ! -f /opt/nasvcs/etc/ssh/ssh_host_ecdsa_key ] || \
@@ -39,6 +43,7 @@ if [ ! -f /opt/nasvcs/etc/ssh/ssh_host_ecdsa_key ] || \
 then
     entrypoint_log "generating SSH host keys"
     mkdir -p /opt/nasvcs/etc/ssh
+    # TODO: develop a better solution that doesn't pipe to ts
     ssh-keygen -Af /opt/nasvcs | ts '%Y-%m-%dT%H:%M:%S%z'
 fi
 
@@ -48,11 +53,14 @@ then
 fi
 
 entrypoint_log "enabling vcs user with a random password"
-PW=$(head -c 32 /dev/urandom | base64) && echo -e "$PW\n$PW" | passwd vcs >/dev/null 2>&1 && unset PW
+ PW="$(head -c 32 /dev/urandom | base64)"
+ printf '%s\n%s\n' "$PW" "$PW" | passwd vcs >/dev/null 2>&1
+ unset PW
 
 entrypoint_log "creating symbolic links for vcs project roots"
 for dir in /opt/nasvcs/vcs/*; do
     [ -d "$dir" ] || continue
+    [ -L "/$(basename "$dir")" ] && continue
     if ln -s "$dir" "/$(basename "$dir")"
     then
         entrypoint_log "created symbolic link /$(basename "$dir") -> $dir"
@@ -61,7 +69,10 @@ for dir in /opt/nasvcs/vcs/*; do
     fi
 done
 
-entrypoint_log "initializing lighttpd log"
-touch /var/log/lighttpd/access.log && chown lighttpd:lighttpd /var/log/lighttpd/access.log
+if [ ! -f /var/log/lighttpd/access.log ]
+then
+    entrypoint_log "initializing lighttpd log"
+    touch /var/log/lighttpd/access.log && chown lighttpd:lighttpd /var/log/lighttpd/access.log
+fi
 
 exec "$@"
