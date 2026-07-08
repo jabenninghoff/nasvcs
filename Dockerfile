@@ -9,7 +9,9 @@ RUN apk upgrade --no-cache && \
     # gitweb packages
     apk add --no-cache git-gitweb perl-cgi && \
     # viewvc packages
-    apk add --no-cache rcs python3 py3-pygments py3-chardet
+    apk add --no-cache rcs python3 py3-pygments py3-chardet && \
+    # lighttpd packages
+    apk add --no-cache lighttpd-mod_auth apache2-utils
 
 ARG NASVCS_VERSION
 ENV NASVCS_VERSION="${NASVCS_VERSION}"
@@ -37,7 +39,7 @@ RUN mkdir -p /opt/nasvcs/vcs && \
     chown vcs:vcs /opt/nasvcs/vcs
 
 EXPOSE 22 80
-VOLUME [ "/opt/nasvcs/vcs", "/opt/nasvcs/etc/ssh" ]
+VOLUME [ "/opt/nasvcs/etc/ssh", "/opt/nasvcs/user", "/opt/nasvcs/vcs" ]
 
 ENTRYPOINT [ "/opt/nasvcs/sbin/docker-entrypoint.sh" ]
 CMD [ "runsvdir", "-P", "/opt/nasvcs/runit" ]
