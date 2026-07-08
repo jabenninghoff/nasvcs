@@ -1,3 +1,4 @@
 # ignore compose test files
-sshkeys
+hostkeys
+user
 vcs

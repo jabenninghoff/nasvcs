@@ -47,9 +47,14 @@ then
     ssh-keygen -Af /opt/nasvcs | ts '%Y-%m-%dT%H:%M:%S%z'
 fi
 
-if [ ! -s /opt/nasvcs/etc/ssh/authorized_keys ]
+if [ ! -s /opt/nasvcs/user/authorized_keys ]
 then
     entrypoint_log "warning: authorized_keys file does not exist or is empty"
+fi
+
+if [ ! -s /opt/nasvcs/user/lighttpd.user ]
+then
+    entrypoint_log "warning: lighttpd.user file does not exist or is empty"
 fi
 
 entrypoint_log "enabling vcs user with a random password"

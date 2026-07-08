@@ -13,7 +13,8 @@ services:
       - "22:22"
       - "80:80"
     volumes:
-      - ./sshkeys:/opt/nasvcs/etc/ssh
+      - ./hostkeys:/opt/nasvcs/etc/ssh
+      - ./user:/opt/nasvcs/user
       - ./vcs:/opt/nasvcs/vcs
     environment:
       - NASVCS_GIT_PROJECTROOT=/opt/nasvcs/vcs/git

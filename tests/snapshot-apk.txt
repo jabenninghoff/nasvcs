@@ -2,7 +2,10 @@ alpine-baselayout 3.7.2-r1
 alpine-baselayout-data 3.7.2-r1
 alpine-keys 2.6-r0
 alpine-release 3.24.1-r0
+apache2-utils 2.4.68-r0
 apk-tools 3.0.6-r0
+apr 1.7.6-r0
+apr-util 1.6.3-r2
 brotli-libs 1.2.0-r1
 busybox 1.37.0-r31
 busybox-binsh 1.37.0-r31
@@ -37,7 +40,9 @@ libsasl 2.1.28-r9
 libssl3 3.5.7-r0
 libstdc++ 15.2.0-r5
 libunistring 1.4.2-r0
+libuuid 2.42.1-r0
 lighttpd 1.4.82-r1
+lighttpd-mod_auth 1.4.82-r1
 lua5.5-libs 5.5.0-r1
 moreutils 0.70-r1
 mpdecimal 4.0.1-r0
