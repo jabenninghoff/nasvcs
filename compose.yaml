@@ -1,20 +1,16 @@
 # nasvcs compose example
 services:
   nasvcs:
-    # image: ghcr.io/jabenninghoff/nasvcs:latest
-    image: nasvcs:dev
-    build:
-      context: .
-      args:
-        - NASVCS_VERSION=0.0.1-dev
+    # image: ghcr.io/jabenninghoff/nasvcs:version # uncomment and use with specific version number for production
+    image: nasvcs:dev # use with docker-build.sh for local development, remove for production
     restart: unless-stopped
     hostname: nasvcs.test
     ports:
-      - "22:22"
-      - "80:80"
+      - "22:22" # SSH
+      - "80:80" # HTTP (use with HTTPS reverse proxy)
     volumes:
-      - ./hostkeys:/opt/nasvcs/etc/ssh
-      - ./user:/opt/nasvcs/user
+      - ./hostkeys:/opt/nasvcs/etc/ssh:ro
+      - ./user:/opt/nasvcs/user:ro
       - ./vcs:/opt/nasvcs/vcs
     environment:
       - NASVCS_GIT_PROJECTROOT=/opt/nasvcs/vcs/git
