@@ -54,7 +54,7 @@ htpasswd -nBC 10 vcs
 
 ## OpenSSH
 
-nasvcs uses [OpenSSH](https://www.openssh.org) sshd for secure hosting of git and cvs. SSH Host Keys are persisted in the `/opt/nasvcs/etc/ssh` volume, mapped to `hostkeys` in the example Docker Compose file. sshd is configured to only allow SSH key-based authentication, and logins are restricted to only allow the vcs user with the `AuthorizedKeysFile /opt/nasvcs/user/authorized_keys`. root login is explicitly denied. Users must have a password to allow SSH logins, so a random password is set at startup.
+nasvcs uses [OpenSSH](https://www.openssh.org) sshd for secure hosting of git and cvs. SSH Host Keys are persisted in the `/opt/nasvcs/etc/ssh` volume, mapped to `hostkeys` in the example Docker Compose file. sshd is configured to only allow SSH key-based authentication, and logins are restricted to only allow the vcs user with the `AuthorizedKeysFile /opt/nasvcs/user/authorized_keys`. root login is explicitly denied. Users must have a password to allow SSH logins, so nasvcs sets a random password for the vcs user at startup.
 
 SSH configuration can be verified using the included `sshd-login.sh`, which tests that vcs login succeeds and all other logins fail.
 
@@ -86,9 +86,9 @@ AttributeError: attribute 'closed' of '_io.TextIOWrapper' objects is not writabl
 
 ## lighttpd
 
-lighttpd is a low-resource web server that has a lower memory footprint than Apache or Nginx. It is configured to allow viewing of the git and CVS repositories hosted on the server using the GitWeb and ViewVC CGI scripts. To reduce noise from web crawlers, the root directory (<http://nasvcs.test/>) is empty and does not require authentication. GitWeb and ViewVC are protected using Basic Authentication using lighttpd [mod_auth](https://redmine.lighttpd.net/projects/lighttpd/wiki/mod_auth).
+lighttpd is a low-resource web server that has a lower memory footprint than Apache or Nginx. It is configured to allow viewing of the git and CVS repositories hosted on the server using the GitWeb and ViewVC CGI scripts. To reduce noise from web crawlers, the root directory (<http://nasvcs.test/>) is empty and does not require authentication, which will return error code 403 (Forbidden). GitWeb and ViewVC are protected using Basic Authentication using lighttpd [mod_auth](https://redmine.lighttpd.net/projects/lighttpd/wiki/mod_auth).
 
-The recommended and [example](https://redmine.lighttpd.net/projects/1/wiki/HowToBasicAuth) configurations use Digest Authentication using [RFC7616](https://datatracker.ietf.org/doc/html/rfc7616) SHA-256; this method is supported by Firefox and Chrome, but not [Safari](https://github.com/WebKit/standards-positions/issues/212) and possibly other browsers. To maximize browser support, nasvcs implements Basic Authentication and must be accessed through localhost or behind a HTTPS reverse proxy.
+The recommended and [example](https://redmine.lighttpd.net/projects/1/wiki/HowToBasicAuth) configurations use Digest Authentication using [RFC7616](https://datatracker.ietf.org/doc/html/rfc7616) SHA-256; this method is supported by Firefox and Chrome, but not [Safari](https://github.com/WebKit/standards-positions/issues/212) and possibly other browsers. To maximize browser support, nasvcs implements Basic Authentication and must be configured to be accessed through localhost or behind a HTTPS reverse proxy to prevent interception of plain text passwords.
 
 lighttpd appears to support all password hashes provided by Apache [htpasswd](https://httpd.apache.org/docs/current/programs/htpasswd.html), including bcrypt, which was verified to work. The recommended hash is bcrypt (the strongest method) using a computing time parameter of 10: `htpasswd -BC 10 -c lighttpd.user user`, but other hashes should work. htpasswd is installed on the Docker image for convenience.
 
