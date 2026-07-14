@@ -10,12 +10,32 @@ Based on [nasmail](https://github.com/jabenninghoff/nasmail).
 
 nasvcs uses GitHub Actions to build and publish a Docker image to the GitHub Container Registry, using design, automation, and tests based on nasmail. The included `compose.yaml` file can be adapted to deploy the container using `docker compose`.
 
-New images are published for each new release only; there are no development images (`edge` or `main`). All pull requests and merges to main build and load the image (without publishing) for testing and validation. Images are built for Intel (`amd64`), 64-bit ARM (`arm64`: Apple, Raspberry Pi) and 32-bit ARM (`arm/v6`, `arm/v7`: older Raspberry Pi hardware).
-
 Pull the latest (stable) image using:
 
 ```sh
 docker pull ghcr.io/jabenninghoff/nasvcs
+```
+
+New images are published for each new release only; there are no development images (`edge` or `main`). All pull requests and merges to main build and load the image (without publishing) for testing and validation. Images are built for Intel (`amd64`), 64-bit ARM (`arm64`: Apple, Raspberry Pi) and 32-bit ARM (`arm/v6`, `arm/v7`: older Raspberry Pi hardware).
+
+Make sure to update the `image` section of the `compose.yaml`, a complete production file should resemble:
+
+```yaml
+services:
+  nasvcs:
+    image: ghcr.io/jabenninghoff/nasvcs:<version>
+    restart: unless-stopped
+    hostname: nasvcs.test
+    ports:
+      - "22:22" # SSH
+      - "80:80" # HTTP (use with HTTPS reverse proxy)
+    volumes:
+      - /full/path/to/hostkeys:/opt/nasvcs/etc/ssh:ro
+      - /full/path/to/user:/opt/nasvcs/user:ro
+      - /full/path/to/vcs:/opt/nasvcs/vcs
+    environment:
+      - NASVCS_GIT_PROJECTROOT=/opt/nasvcs/vcs/git
+      - NASVCS_VIEWVC_MIME_TYPE_WORKAROUND=json php xsl yaml yml
 ```
 
 ## Environment Variables
