@@ -94,6 +94,26 @@ lighttpd appears to support all password hashes provided by Apache [htpasswd](ht
 
 ## runit
 
-nasvcs uses [runit](https://smarden.org/runit/) to manage Postfix and Dovecot as system services.
+nasvcs uses [runit](https://smarden.org/runit/) to manage OpenSSH and lighttpd as system services.
 
-<!-- # TODO: add Tests section -->
+## Tests
+
+nasvcs has two test suites:
+
+`image-tests.sh` runs the following tests, which require a locally built docker image using `docker-build.sh`:
+
+- `apk-list.sh`: errors if installed `apk` packages have changed
+- `sshd-default.sh`: errors if the sshd default configuration has changed
+- `lighttpd-defaults.sh`: errors if the lighttpd default configuration has changed
+- `viewvc-defaults.sh`: errors if the ViewVC default configuration has changed
+- `startup.sh`: starts a nasvcs container and immediately exits
+- `docker-header.sh`: places the Dockerfile version header on the clipboard
+
+After tests pass, the version header in the `Dockerfile` can be updated using the `docker-header.sh` script.
+
+`live-tests.sh` runs the following tests, which additionally require a working Docker Compose environment, including valid `hostkeys`, `user` files (`authorized_keys` and `lighttpd.user`), and test `vcs` files:
+
+- `sshd-login.sh`: validates that the vcs user can log in and other users, including root, are denied login
+- `web-access.sh`: verifies HTTP return codes for GitWeb and ViewVC URLs with and without authentication using hurl
+
+The full Docker Compose test environment uses dnsmasq to redirect `.local` to localhost (127.0.0.1).

@@ -1,10 +1,13 @@
 {
     "cSpell.words": [
+        "dnsmasq",
+        "gitweb",
         "hostkeys",
         "htpasswd",
         "jabenninghoff",
         "lighttpd",
         "nasvcs",
-        "runit"
+        "runit",
+        "viewvc"
     ]
 }
