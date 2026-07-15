@@ -15,3 +15,21 @@
         <img src="[docroot]/images/[icon_file]" alt="" class="vc_icon" />
         [entries.name][is entries.pathtype "dir"]/[end][if-any click_href]</a>[end][if-any entries.lockinfo]<img src="[docroot]/images/lock-icon.gif" alt="locked" class="vc_overlay" title="Locked by [entries.lockinfo]" />[end]
         [is entries.state "dead"](dead)[end]
+--- lib/viewvc.py
++++ lib/viewvc.py
+@@ -97,9 +97,13 @@ class TextIOWrapper_noclose(io.TextIOWrapper):
+     close() is called or this object is destroyed."""
+ 
+     def close(self):
+-        if not self.closed:
+-            self.closed = True
++        if self.closed:
++            return
++        try:
+             self.flush()
++        finally:
++            # Detach so finalization of this wrapper won't close the underlying
++            # server stream.
+             self.detach()
+ 
+ 
