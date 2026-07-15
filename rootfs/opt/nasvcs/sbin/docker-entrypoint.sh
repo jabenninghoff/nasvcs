@@ -23,20 +23,6 @@ then
     entrypoint_log "warning: NASVCS_GIT_PROJECTROOT directory does not exist or is empty"
 fi
 
-# TODO: workaround for missing hyperlinks in directory listing for application/* MIME types (json php xsl yaml yml)
-# upstream issue: https://github.com/viewvc/viewvc/issues/407
-if [ -n "${NASVCS_VIEWVC_MIME_TYPE_WORKAROUND}" ]
-then
-    workaround="text/x-workaround ${NASVCS_VIEWVC_MIME_TYPE_WORKAROUND}"
-    if ! grep -qxF "$workaround" /opt/nasvcs/viewvc/mimetypes.conf
-    then
-        entrypoint_log "applying NASVCS_VIEWVC_MIME_TYPE_WORKAROUND"
-        entrypoint_log "setting ViewVC MIME_TYPE \"text/x-workaround ${NASVCS_VIEWVC_MIME_TYPE_WORKAROUND}\""
-        sed -i 's/^#mime_types_files = mimetypes.conf/mime_types_files = mimetypes.conf/' /opt/nasvcs/viewvc/viewvc.conf
-        echo "$workaround" >> /opt/nasvcs/viewvc/mimetypes.conf
-    fi
-fi
-
 if [ ! -f /opt/nasvcs/etc/ssh/ssh_host_ecdsa_key ] || \
    [ ! -f /opt/nasvcs/etc/ssh/ssh_host_ed25519_key ] || \
    [ ! -f /opt/nasvcs/etc/ssh/ssh_host_rsa_key ]
