@@ -109,7 +109,7 @@ nasvcs has two test suites:
 - `startup.sh`: starts a nasvcs container and immediately exits
 - `docker-header.sh`: places the Dockerfile version header on the clipboard
 
-After tests pass, the version header in the `Dockerfile` can be updated using the `docker-header.sh` script.
+After the image tests pass, the version header in can be pasted in the `Dockerfile` (for changes).
 
 `live-tests.sh` runs the following tests, which additionally require a working Docker Compose environment, including valid `hostkeys`, `user` files (`authorized_keys` and `lighttpd.user`), and test `vcs` files:
 
