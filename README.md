@@ -35,13 +35,11 @@ services:
       - /full/path/to/vcs:/opt/nasvcs/vcs
     environment:
       - NASVCS_GIT_PROJECTROOT=/opt/nasvcs/vcs/git
-      - NASVCS_VIEWVC_MIME_TYPE_WORKAROUND=json php xsl yaml yml
 ```
 
 ## Environment Variables
 
 - `NASVCS_GIT_PROJECTROOT`: path to the GitWeb `$projectroot`, defaults to `/opt/nasvcs/vcs/git`
-- `NASVCS_VIEWVC_MIME_TYPE_WORKAROUND`: a space separated list of file extensions ViewVC should treat as text, a workaround for <https://github.com/viewvc/viewvc/issues/407>; for example `json yaml yml`.
 
 ## User
 
@@ -72,17 +70,19 @@ Web access to git is provided using [GitWeb](https://git-scm.com/docs/gitweb) on
 
 ## ViewVC
 
-[ViewVC](https://github.com/viewvc/viewvc) provides web access to one or more cvs roots using lighttpd. ViewVC is configured to scan the `/opt/nasvcs/vcs` directory for cvs roots which are viewable at `/viewvc/`; <http://nasvcs.test/viewvc/>. Access to ViewVC is also restricted using Basic authentication using the username and password stored in `/opt/nasvcs/user/lighttpd.user`. The current version of ViewVC, [1.3.0](https://github.com/viewvc/viewvc/releases), [omits hyperlinks](https://github.com/viewvc/viewvc/issues/407) for files in its directory listings that have a MIME type other than `text/*`. As a workaround, space-separated file extensions that should be treated as text can be added to the `NASVCS_VIEWVC_MIME_TYPE_WORKAROUND` environment variable, which overrides the MIME type (from lighttpd). Some common file types are included in the example `compose.yaml` file.
+[ViewVC](https://github.com/viewvc/viewvc) provides web access to one or more cvs roots using lighttpd. ViewVC is configured to scan the `/opt/nasvcs/vcs` directory for cvs roots which are viewable at `/viewvc/`; <http://nasvcs.test/viewvc/>. Access to ViewVC is also restricted using Basic authentication using the username and password stored in `/opt/nasvcs/user/lighttpd.user`.
 
-<!-- # TODO: open new ViewVC issue:
+nasvcs makes the following configuration changes to ViewVC:
 
-Also seeing this error message in lighttpd logs:
+- By default, ViewVC [omits hyperlinks](https://github.com/viewvc/viewvc/issues/407) for files in its directory listings that have a MIME type other than `text/*`. This behavior is overridden by a patch to the default template that always links files to the "markup" view.
+- ViewVC disables some view types as they introduce a security risk on shared systems. nasvcs enables all view types in `viewvc.conf`.
+
+Currently, ViewVC generates errors in the lighttpd logs. Logged as ViewVC issue [#408](https://github.com/viewvc/viewvc/issues/408).
 
 ```text
 Exception ignored while finalizing file <TextIOWrapper_noclose name='<ServerFile file>' encoding='utf-8'>:
 AttributeError: attribute 'closed' of '_io.TextIOWrapper' objects is not writable
 ```
--->
 
 ## lighttpd
 

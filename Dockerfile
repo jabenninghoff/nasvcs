@@ -24,14 +24,21 @@ COPY rootfs/ /
 # TODO: add sha256 verification for downloaded viewvc tarball
 ARG VIEWVC_VERSION=1.3.0
 RUN cd /tmp && \
+    apk add --no-cache patch && \
     wget https://github.com/viewvc/viewvc/releases/download/${VIEWVC_VERSION}/viewvc-${VIEWVC_VERSION}.tar.gz && \
     tar xzf viewvc-${VIEWVC_VERSION}.tar.gz && \
+    # patch to always display file markup link per https://github.com/viewvc/viewvc/issues/407
+    patch < /opt/nasvcs/src/templates_default_directory_ezt.patch viewvc-${VIEWVC_VERSION}/templates/default/directory.ezt && \
     ./viewvc-${VIEWVC_VERSION}/viewvc-install --prefix=/opt/nasvcs/viewvc --destdir= && \
-    rm -rf /tmp/viewvc-${VIEWVC_VERSION} /tmp/viewvc-${VIEWVC_VERSION}.tar.gz && \
     # security: delete iis cgi directory
     rm -rf /opt/nasvcs/viewvc/bin/cgi/iis && \
     # configure cvs roots
-    sed -i 's!^#root_parents =!root_parents = /opt/nasvcs/vcs : cvs!' /opt/nasvcs/viewvc/viewvc.conf
+    sed -i 's!^#root_parents =.*!root_parents = /opt/nasvcs/vcs : cvs!' /opt/nasvcs/viewvc/viewvc.conf && \
+    # enable all views
+    sed -i 's/^#allowed_views =.*/allowed_views = annotate, co, diff, image, markup, roots, tar/' /opt/nasvcs/viewvc/viewvc.conf && \
+    # cleanup
+    rm -rf /tmp/viewvc-${VIEWVC_VERSION} /tmp/viewvc-${VIEWVC_VERSION}.tar.gz && \
+    apk del patch
 
 RUN mkdir -p /opt/nasvcs/vcs && \
     addgroup --gid 5000 vcs && \
