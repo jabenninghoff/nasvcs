@@ -29,7 +29,8 @@ RUN cd /tmp && \
     echo "${VIEWVC_SHA256}  viewvc-${VIEWVC_VERSION}.tar.gz" | sha256sum -c - && \
     tar xzf viewvc-${VIEWVC_VERSION}.tar.gz && \
     # patch to always display file markup link per https://github.com/viewvc/viewvc/issues/407
-    patch < /opt/nasvcs/src/templates_default_directory_ezt.patch viewvc-${VIEWVC_VERSION}/templates/default/directory.ezt && \
+    patch -p0 --batch --forward -i /opt/nasvcs/src/templates_default_directory_ezt.patch \
+                                   viewvc-${VIEWVC_VERSION}/templates/default/directory.ezt && \
     ./viewvc-${VIEWVC_VERSION}/viewvc-install --prefix=/opt/nasvcs/viewvc --destdir= && \
     # security: delete iis cgi directory
     rm -rf /opt/nasvcs/viewvc/bin/cgi/iis && \
