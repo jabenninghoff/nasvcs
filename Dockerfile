@@ -21,11 +21,12 @@ RUN cp -p /etc/lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf.dist
 COPY rootfs/ /
 
 # download, install and configure viewvc
-# TODO: add sha256 verification for downloaded viewvc tarball
 ARG VIEWVC_VERSION=1.3.0
+ARG VIEWVC_SHA256="c2982b0ae822e210ca083f9738ea8e2e52fdc1fa1665baa2a10c06e874c5b68f"
 RUN cd /tmp && \
     apk add --no-cache patch && \
     wget https://github.com/viewvc/viewvc/releases/download/${VIEWVC_VERSION}/viewvc-${VIEWVC_VERSION}.tar.gz && \
+    echo "${VIEWVC_SHA256}  viewvc-${VIEWVC_VERSION}.tar.gz" | sha256sum -c - && \
     tar xzf viewvc-${VIEWVC_VERSION}.tar.gz && \
     # patch to always display file markup link per https://github.com/viewvc/viewvc/issues/407
     patch < /opt/nasvcs/src/templates_default_directory_ezt.patch viewvc-${VIEWVC_VERSION}/templates/default/directory.ezt && \
