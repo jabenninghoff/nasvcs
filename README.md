@@ -77,12 +77,7 @@ nasvcs makes the following configuration changes to ViewVC:
 - By default, ViewVC [omits hyperlinks](https://github.com/viewvc/viewvc/issues/407) for files in its directory listings that have a MIME type other than `text/*`. This behavior is overridden by a patch to the default template that always links files to the "markup" view.
 - ViewVC disables some view types as they introduce a security risk on shared systems. nasvcs enables all view types in `viewvc.conf`.
 
-Currently, ViewVC generates errors in the lighttpd logs. Logged as ViewVC issue [#408](https://github.com/viewvc/viewvc/issues/408).
-
-```text
-Exception ignored while finalizing file <TextIOWrapper_noclose name='<ServerFile file>' encoding='utf-8'>:
-AttributeError: attribute 'closed' of '_io.TextIOWrapper' objects is not writable
-```
+nasvcs applies a patch fix to resolve an [issue](https://github.com/viewvc/viewvc/issues/408) in ViewVC that generated errors in the lighttpd logs.
 
 ## lighttpd
 
