@@ -41,8 +41,8 @@ libssl3 3.5.7-r0
 libstdc++ 15.2.0-r5
 libunistring 1.4.2-r0
 libuuid 2.42.1-r0
-lighttpd 1.4.82-r1
-lighttpd-mod_auth 1.4.82-r1
+lighttpd 1.4.85-r0
+lighttpd-mod_auth 1.4.85-r0
 lua5.5-libs 5.5.0-r1
 moreutils 0.70-r1
 mpdecimal 4.0.1-r0
