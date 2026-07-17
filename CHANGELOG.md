@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/jabenninghoff/nasvcs/compare/v1.0.0...v1.0.1) (2026-07-17)
+
+
+### Bug Fixes
+
+* update lighttpd from 1.4.82 to 1.4.85 ([df5dc3c](https://github.com/jabenninghoff/nasvcs/commit/df5dc3c0ea8b05a02f42b2e2e9514bfc9ff97672))
+
 ## 1.0.0 (2026-07-15)
 
 
