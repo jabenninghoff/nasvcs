@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/jabenninghoff/nasvcs/compare/v1.0.1...v1.0.2) (2026-07-23)
+
+
+### Bug Fixes
+
+* support legacy SSH clients (ssh-rsa) ([e3dc479](https://github.com/jabenninghoff/nasvcs/commit/e3dc4799f6301731209aa4cc5f5a8e7162d903f2))
+
 ## [1.0.1](https://github.com/jabenninghoff/nasvcs/compare/v1.0.0...v1.0.1) (2026-07-17)
 
 
