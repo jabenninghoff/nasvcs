@@ -37,6 +37,45 @@ services:
       - NASVCS_GIT_PROJECTROOT=/opt/nasvcs/vcs/git
 ```
 
+## Permissions
+
+SSH logins can fail if permissions aren't set properly for hostkeys, user, or `authorized_keys`. Recommended ownership and permissions for Docker bind mounts (hostkeys, user, vcs) are listed below:
+
+```text
+$ ls -lAd hostkeys user vcs
+drwxr-xr-x 1 root root 240 Jul 15 18:47 hostkeys
+drwxr-xr-x 1 root root  56 Jul 22 19:35 user
+drwxr-xr-x 1 5000 5000  22 Jul 22 19:33 vcs
+
+$ ls -lA hostkeys
+total 24
+-rw------- 1 root root  525 Jul 15 18:47 ssh_host_ecdsa_key
+-rw-r--r-- 1 root root  186 Jul 15 18:47 ssh_host_ecdsa_key.pub
+-rw------- 1 root root  419 Jul 15 18:47 ssh_host_ed25519_key
+-rw-r--r-- 1 root root  106 Jul 15 18:47 ssh_host_ed25519_key.pub
+-rw------- 1 root root 2610 Jul 15 18:47 ssh_host_rsa_key
+-rw-r--r-- 1 root root  578 Jul 15 18:47 ssh_host_rsa_key.pub
+
+$ ls -lA user
+total 8
+-rw-r--r-- 1 root root 413 Jul 17 13:04 authorized_keys
+-rw-r--r-- 1 root root  65 Jul 17 13:04 lighttpd.user
+```
+
+The hostkeys and user directories should be owned by root (0), and the vcs directory owned by vcs (5000). Permissions can also be verified from inside the running container using `docker exec -it nasvcs-nasvcs-1 sh`:
+
+```text
+# ls -lA /opt/nasvcs/
+total 0
+drwxr-xr-x    1 root     root             6 Jul 23 01:07 etc
+drwxr-xr-x    1 root     root            54 Jul 17 17:57 runit
+drwxr-xr-x    1 root     root            40 Jul 17 17:57 sbin
+drwxr-xr-x    1 root     root            24 Jul 17 17:57 src
+drwxr-xr-x    1 root     root            56 Jul 23 00:35 user
+drwxr-xr-x    1 vcs      vcs             22 Jul 23 00:33 vcs
+drwxr-xr-x    1 root     root           212 Jul 17 17:57 viewvc
+```
+
 ## Environment Variables
 
 - `NASVCS_GIT_PROJECTROOT`: path to the GitWeb `$projectroot`, defaults to `/opt/nasvcs/vcs/git`
