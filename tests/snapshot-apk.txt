@@ -64,7 +64,7 @@ perl-clone 0.50-r0
 perl-encode-locale 1.05-r5
 perl-error 0.17030-r0
 perl-git 2.54.0-r0
-perl-html-parser 3.83-r1
+perl-html-parser 3.85-r0
 perl-html-tagset 3.24-r0
 perl-http-date 6.06-r0
 perl-http-message 7.02-r0
