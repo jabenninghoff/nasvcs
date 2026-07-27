@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.0.3](https://github.com/jabenninghoff/nasvcs/compare/v1.0.2...v1.0.3) (2026-07-27)
+
+
+### Bug Fixes
+
+* bump actions/attest from 4.1.1 to 4.2.0 ([e86298e](https://github.com/jabenninghoff/nasvcs/commit/e86298e13e8f4e3340e530e4634dd773e4285ef3))
+* bump actions/checkout from 7.0.0 to 7.0.1 ([13f664b](https://github.com/jabenninghoff/nasvcs/commit/13f664b867c6ec2fe9dd969a26022995cd803992))
+* update alpine packages (dependencies) ([657bf20](https://github.com/jabenninghoff/nasvcs/commit/657bf20e3ce2b52810c96f51e7ab7c1330dc0a3f))
+
 ## [1.0.2](https://github.com/jabenninghoff/nasvcs/compare/v1.0.1...v1.0.2) (2026-07-23)
 
 
