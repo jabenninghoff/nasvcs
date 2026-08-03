@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.5](https://github.com/jabenninghoff/nasvcs/compare/v1.0.4...v1.0.5) (2026-08-03)
+
+
+### Bug Fixes
+
+* updated viewvc patch ([2479789](https://github.com/jabenninghoff/nasvcs/commit/24797890ad6be10d7e7e1e14b98fc5fa3f060c8c))
+
 ## [1.0.4](https://github.com/jabenninghoff/nasvcs/compare/v1.0.3...v1.0.4) (2026-08-03)
 
 
