@@ -142,6 +142,7 @@ nasvcs has two test suites:
 - `viewvc-defaults.sh`: errors if the ViewVC default configuration has changed
 - `startup.sh`: starts a nasvcs container and immediately exits
 - `docker-header.sh`: places the Dockerfile version header on the clipboard
+- `apk-upgrade.sh`: errors if updated `apk` packages are available
 
 After the image tests pass, the version header in can be pasted in the `Dockerfile` (for changes).
 
