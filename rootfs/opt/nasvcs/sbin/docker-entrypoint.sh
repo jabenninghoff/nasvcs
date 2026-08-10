@@ -2,7 +2,8 @@
 set -e
 
 entrypoint_log() {
-    echo "$(date '+%Y-%m-%dT%H:%M:%S%z') nasvcs: $*"
+    # match lighttpd timestamp format
+    echo "$(date '+%Y-%m-%d %H:%M:%S') nasvcs: $*"
 }
 
 entrypoint_log "version ${NASVCS_VERSION:-unknown} starting"
@@ -29,8 +30,7 @@ if [ ! -f /opt/nasvcs/etc/ssh/ssh_host_ecdsa_key ] || \
 then
     entrypoint_log "generating SSH host keys"
     mkdir -p /opt/nasvcs/etc/ssh
-    # TODO: develop a better solution that doesn't pipe to ts
-    ssh-keygen -Af /opt/nasvcs | ts '%Y-%m-%dT%H:%M:%S%z'
+    ssh-keygen -Af /opt/nasvcs
 fi
 
 if [ ! -s /opt/nasvcs/user/authorized_keys ]

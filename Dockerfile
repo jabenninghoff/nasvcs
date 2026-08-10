@@ -4,8 +4,6 @@ FROM alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6ee
 # major updates are features, other updates are fixes
 RUN apk upgrade --no-cache && \
     apk add --no-cache cvs git lighttpd openssh runit && \
-    # openssh packages
-    apk add --no-cache moreutils && \
     # gitweb packages
     apk add --no-cache git-gitweb perl-cgi && \
     # viewvc packages
