@@ -5,7 +5,7 @@ alpine-release 3.24.1-r0
 apache2-utils 2.4.68-r0
 apk-tools 3.0.7-r0
 apr 1.7.6-r0
-apr-util 1.6.3-r2
+apr-util 1.6.4-r0
 brotli-libs 1.2.0-r1
 busybox 1.37.0-r31
 busybox-binsh 1.37.0-r31
