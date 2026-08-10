@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.0.5](https://github.com/jabenninghoff/nasvcs/compare/v1.0.4...v1.0.5) (2026-08-10)
+
+
+### Bug Fixes
+
+* bump actions/attest from 4.2.0 to 4.2.1 ([eef5946](https://github.com/jabenninghoff/nasvcs/commit/eef5946c4df001a7cf660d735619228518924c9a))
+* bump docker/login-action from 4.5.2 to 4.6.0 ([3292dfb](https://github.com/jabenninghoff/nasvcs/commit/3292dfbdc7af2edf962c0729356d424f35b5bb74))
+* update alpine packages (dependencies) ([3c8da86](https://github.com/jabenninghoff/nasvcs/commit/3c8da864d3b3a69fd6391bccd1ae3dd9427ca5c9))
+* updated viewvc patch ([2479789](https://github.com/jabenninghoff/nasvcs/commit/24797890ad6be10d7e7e1e14b98fc5fa3f060c8c))
+
 ## [1.0.4](https://github.com/jabenninghoff/nasvcs/compare/v1.0.3...v1.0.4) (2026-08-03)
 
 
