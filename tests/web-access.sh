@@ -2,9 +2,8 @@
 # interactive: check nasvcs web access
 # requires: docker compose, valid /opt/nasvcs/user/lighttpd.user, hurl
 
-# TODO: color success/failure messages
 fail() {
-    printf "Web tests FAILED\n\n"
+    printf "Web tests \e[31mFAILED\e[0m\n\n"
     docker compose down -v
     exit 1
 }
@@ -26,5 +25,5 @@ hurl_test viewvc-unauth.hurl
 hurl_test --user vcs:vcstest viewvc-auth.hurl
 hurl_test --user vcs:badpass viewvc-unauth.hurl
 
-printf "Web tests successful!\n\n"
+printf "Web tests \e[32msuccessful\e[0m!\n\n"
 docker compose down -v

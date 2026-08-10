@@ -2,9 +2,8 @@
 # interactive: check nasvcs SSH access
 # requires: docker compose, valid ./user/authorized_keys
 
-# TODO: color success/failure messages
 fail() {
-    printf "\nSSH tests FAILED\n\n"
+    printf "\nSSH tests \e[31mFAILED\e[0m\n\n"
     docker compose down -v
     exit 1
 }
@@ -31,5 +30,5 @@ ssh_login lighttpd@nasvcs.test expect_fail
 ssh_login vcs@nasvcs.test      expect_succeed
 printf "\n"
 
-printf "SSH tests successful!\n\n"
+printf "SSH tests \e[32msuccessful\e[0m!\n\n"
 docker compose down -v
