@@ -3,4 +3,4 @@
 # requires: docker-build.sh, docker compose
 ./sshd-login.sh && \
 ./web-access.sh && \
-echo "" && echo "all tests passed!"
+printf "\nall tests \e[32mpassed\e[0m!\n"
