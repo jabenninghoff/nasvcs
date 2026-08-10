@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/jabenninghoff/nasvcs/compare/v1.0.5...v1.1.0) (2026-08-10)
+
+
+### Features
+
+* remove pipe to ts ([8986798](https://github.com/jabenninghoff/nasvcs/commit/8986798ae56fa6c5dbc8f7411d6a1f381e7ee886))
+
 ## [1.0.5](https://github.com/jabenninghoff/nasvcs/compare/v1.0.4...v1.0.5) (2026-08-10)
 
 
