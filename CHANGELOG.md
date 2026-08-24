@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2](https://github.com/jabenninghoff/nasvcs/compare/v1.1.1...v1.1.2) (2026-08-24)
+
+
+### Bug Fixes
+
+* bump docker/setup-buildx-action from 4.2.0 to 4.3.0 ([4de692e](https://github.com/jabenninghoff/nasvcs/commit/4de692ef6d143e4c3066de998f37f6f8fcc9150a))
+* update alpine packages (dependencies) ([9c0e0e9](https://github.com/jabenninghoff/nasvcs/commit/9c0e0e9094034ba9fe7ad12c9f056e3d0d091349))
+
 ## [1.1.1](https://github.com/jabenninghoff/nasvcs/compare/v1.1.0...v1.1.1) (2026-08-17)
 
 
