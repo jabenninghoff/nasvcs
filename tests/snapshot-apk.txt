@@ -22,7 +22,7 @@ git-perl 2.54.0-r0
 libapk 3.0.7-r0
 libbsd 0.12.2-r0
 libbz2 1.0.8-r6
-libcrypto3 3.5.7-r0
+libcrypto3 3.5.8-r0
 libcurl 8.21.0-r0
 libdbi 0.9.0-r6
 libedit 20260508.3.1-r1
@@ -37,7 +37,7 @@ libncursesw 6.6_p20260516-r0
 libpanelw 6.6_p20260516-r0
 libpsl 0.21.5-r3
 libsasl 2.1.28-r9
-libssl3 3.5.7-r0
+libssl3 3.5.8-r0
 libstdc++ 15.2.0-r5
 libunistring 1.4.2-r0
 libuuid 2.42.1-r0
