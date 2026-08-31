@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/jabenninghoff/nasvcs/compare/v1.1.3...v1.1.4) (2026-08-31)
+
+
+### Bug Fixes
+
+* update openssh to 10.3_p1-r1 ([8ceb2ea](https://github.com/jabenninghoff/nasvcs/commit/8ceb2ea72b7954ed01fc26ec6979a2d0de57f72f))
+
 ## [1.1.3](https://github.com/jabenninghoff/nasvcs/compare/v1.1.2...v1.1.3) (2026-08-30)
 
 
