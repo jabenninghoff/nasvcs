@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.6](https://github.com/jabenninghoff/nasvcs/compare/v1.1.5...v1.1.6) (2026-09-14)
+
+
+### Bug Fixes
+
+* bump docker/setup-qemu-action from 4.2.0 to 4.3.0 ([c0808eb](https://github.com/jabenninghoff/nasvcs/commit/c0808eb2af3d2060ab573eaa1aff018ccc79c5b8))
+* update alpine packages (dependencies) ([c674808](https://github.com/jabenninghoff/nasvcs/commit/c67480843cd14041f3acf8c4999cae5f0b625502))
+
 ## [1.1.5](https://github.com/jabenninghoff/nasvcs/compare/v1.1.4...v1.1.5) (2026-09-07)
 
 
