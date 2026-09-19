@@ -1,4 +1,4 @@
-FROM alpine:3.24.1@sha256:28bd5fe8b56d1bd048e5babf5b10710ebe0bae67db86916198a6eec434943f8b
+FROM alpine:3.24.2@sha256:294b683cb724975bec92580e1e685676bd4b50bda910ddb8c51d4cabeaec77e6
 
 # cvs 1.12.13-r3 git 2.54.0-r0 lighttpd 1.4.85-r0 openssh 10.3_p1-r1 runit 2.3.1-r0
 # major updates are features, other updates are fixes
