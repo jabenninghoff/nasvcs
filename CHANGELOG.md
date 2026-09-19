@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.2.0](https://github.com/jabenninghoff/nasvcs/compare/v1.1.6...v1.2.0) (2026-09-19)
+
+
+### Features
+
+* bump alpine from 3.24.1 to 3.24.2 ([393611b](https://github.com/jabenninghoff/nasvcs/commit/393611bc3a91b3172040bc9944992b0189ee529b))
+
+
+### Bug Fixes
+
+* update alpine packages (dependencies) ([59e6564](https://github.com/jabenninghoff/nasvcs/commit/59e6564d8346a6881f619edbc6ebd4aa307eb10f))
+
 ## [1.1.6](https://github.com/jabenninghoff/nasvcs/compare/v1.1.5...v1.1.6) (2026-09-14)
 
 
