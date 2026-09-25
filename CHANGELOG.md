@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.1](https://github.com/jabenninghoff/nasvcs/compare/v1.2.0...v1.2.1) (2026-09-25)
+
+
+### Bug Fixes
+
+* bump docker/build-push-action from 7.3.0 to 7.4.0 ([f2026e5](https://github.com/jabenninghoff/nasvcs/commit/f2026e546d545589400ac52ed6e11b41c407c097))
+* bump docker/setup-buildx-action from 4.3.0 to 4.4.1 ([f7d435a](https://github.com/jabenninghoff/nasvcs/commit/f7d435a7a784551e8098220de41e6c378380d030))
+* bump docker/setup-qemu-action from 4.3.0 to 4.4.0 ([839882c](https://github.com/jabenninghoff/nasvcs/commit/839882c366b908e7c8ce6b4bf5b7d2277b9bd807))
+* update alpine packages (dependencies) ([10dd760](https://github.com/jabenninghoff/nasvcs/commit/10dd760c2e83624a5a5b8761310c73da978d823d))
+
 ## [1.2.0](https://github.com/jabenninghoff/nasvcs/compare/v1.1.6...v1.2.0) (2026-09-19)
 
 
