@@ -26,7 +26,7 @@ libcrypto3 3.5.8-r0
 libcurl 8.22.0-r0
 libdbi 0.9.0-r6
 libedit 20260508.3.1-r1
-libexpat 2.8.4-r0
+libexpat 2.8.5-r0
 libffi 3.5.2-r1
 libgcc 15.2.0-r5
 libidn2 2.3.8-r0
@@ -57,7 +57,7 @@ openssh-server 10.3_p1-r1
 openssh-server-common 10.3_p1-r1
 openssh-sftp-server 10.3_p1-r1
 pcre2 10.48-r0
-perl 5.42.2-r0
+perl 5.42.2-r1
 perl-cgi 4.72-r0
 perl-clone 0.50-r0
 perl-encode-locale 1.05-r5
