@@ -2,7 +2,7 @@ alpine-baselayout 3.7.2-r1
 alpine-baselayout-data 3.7.2-r1
 alpine-keys 2.6-r0
 alpine-release 3.24.2-r0
-apache2-utils 2.4.68-r0
+apache2-utils 2.4.69-r0
 apk-tools 3.0.8-r0
 apr 1.7.6-r0
 apr-util 1.6.4-r0
@@ -87,5 +87,5 @@ scanelf 1.3.9-r1
 sqlite-libs 3.53.4-r0
 ssl_client 1.37.0-r31
 xz-libs 5.8.4-r0
-zlib 1.3.2-r0
+zlib 1.3.2-r1
 zstd-libs 1.5.7-r2
