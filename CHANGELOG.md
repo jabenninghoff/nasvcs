@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/jabenninghoff/nasvcs/compare/v1.2.2...v1.2.3) (2026-10-09)
+
+
+### Bug Fixes
+
+* update alpine packages (dependencies) ([e87f0a7](https://github.com/jabenninghoff/nasvcs/commit/e87f0a76a67bb68517122ae09aad88697d6c53d9))
+
 ## [1.2.2](https://github.com/jabenninghoff/nasvcs/compare/v1.2.1...v1.2.2) (2026-10-02)
 
 
