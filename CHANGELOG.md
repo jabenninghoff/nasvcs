@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/jabenninghoff/nasvcs/compare/v1.2.3...v1.3.0) (2026-10-24)
+
+
+### Features
+
+* bump alpine from 3.24.2 to 3.24.3 ([658b23e](https://github.com/jabenninghoff/nasvcs/commit/658b23e097b0516bb6fd85af90ae76a30b0df7b0))
+
 ## [1.2.3](https://github.com/jabenninghoff/nasvcs/compare/v1.2.2...v1.2.3) (2026-10-09)
 
 
