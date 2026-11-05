@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/jabenninghoff/nasvcs/compare/v1.4.0...v1.4.1) (2026-11-05)
+
+
+### Bug Fixes
+
+* disable ssh tty ([0a5839b](https://github.com/jabenninghoff/nasvcs/commit/0a5839b498f5311c0c4548b3d25097316f8fcaf6))
+
 ## [1.4.0](https://github.com/jabenninghoff/nasvcs/compare/v1.3.2...v1.4.0) (2026-11-05)
 
 
