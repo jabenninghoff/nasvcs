@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.3.2](https://github.com/jabenninghoff/nasvcs/compare/v1.3.1...v1.3.2) (2026-11-05)
+
+
+### Bug Fixes
+
+* explicitly disable password authentication ([8a41280](https://github.com/jabenninghoff/nasvcs/commit/8a4128034e4e486c72b6b9530cfeb1152d813493))
+* upgrade openssh to 10.3_p1-r2 ([6b67027](https://github.com/jabenninghoff/nasvcs/commit/6b6702720f830478396901c968e94b4fab5251ed))
+
 ## [1.3.1](https://github.com/jabenninghoff/nasvcs/compare/v1.3.0...v1.3.1) (2026-10-30)
 
 
