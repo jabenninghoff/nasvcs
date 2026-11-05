@@ -12,7 +12,7 @@ ssh_login() {
     URI=$1
     result=$2
     printf "trying SSH %s (%s): " "$URI" "$result"
-    if ssh -t "$URI" ls /opt
+    if ssh -T "$URI" ls /opt
     then
         [ "$result" = "expect_succeed" ] || fail
     else
