@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.3](https://github.com/jabenninghoff/nasvcs/compare/v1.4.2...v1.4.3) (2026-11-09)
+
+
+### Bug Fixes
+
+* update alpine packages ([82aadaa](https://github.com/jabenninghoff/nasvcs/commit/82aadaa09d1ab6f279b770883c4d6b5095797357))
+
 ## [1.4.2](https://github.com/jabenninghoff/nasvcs/compare/v1.4.1...v1.4.2) (2026-11-06)
 
 
