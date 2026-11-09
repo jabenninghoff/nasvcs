@@ -87,5 +87,5 @@ scanelf 1.3.9-r1
 sqlite-libs 3.53.4-r0
 ssl_client 1.37.0-r31
 xz-libs 5.8.4-r0
-zlib 1.3.2-r1
+zlib 1.4-r0
 zstd-libs 1.5.7-r2
