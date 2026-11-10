@@ -6,7 +6,7 @@ STARTUP_LOG="$(mktemp)"
 
 docker run --rm --hostname nasvcs.test nasvcs:dev sh | tee "${STARTUP_LOG}"
 
-if [ "$(tail -1 "${STARTUP_LOG}" | cut -d' ' -f5-7)" != "entrypoint script complete" ]
+if [ "$(tail -1 "${STARTUP_LOG}" | cut -d' ' -f4-6)" != "entrypoint script complete" ]
 then
 	echo "entrypoint script did not complete"
 	rm "${STARTUP_LOG}"
