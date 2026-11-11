@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.4](https://github.com/jabenninghoff/nasvcs/compare/v1.4.3...v1.4.4) (2026-11-11)
+
+
+### Bug Fixes
+
+* check configuration in Docker entrypoint ([4664c74](https://github.com/jabenninghoff/nasvcs/commit/4664c747f0bbdc93779b5bdb132ffb8b0af37d00))
+* update git from 2.54.0 to 2.54.1 ([2a7325c](https://github.com/jabenninghoff/nasvcs/commit/2a7325c1e552a3ebe468d33a8d46f3365d8c8baa))
+
 ## [1.4.3](https://github.com/jabenninghoff/nasvcs/compare/v1.4.2...v1.4.3) (2026-11-09)
 
 
