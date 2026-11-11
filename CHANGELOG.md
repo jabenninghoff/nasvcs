@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.5](https://github.com/jabenninghoff/nasvcs/compare/v1.4.4...v1.4.5) (2026-11-11)
+
+
+### Bug Fixes
+
+* bump alpine from `93b41ef` to `f59abe6` ([757ba57](https://github.com/jabenninghoff/nasvcs/commit/757ba57bde2a32e90f0b5a50b26a6afb2a84b095))
+
 ## [1.4.4](https://github.com/jabenninghoff/nasvcs/compare/v1.4.3...v1.4.4) (2026-11-11)
 
 
