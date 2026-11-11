@@ -1,6 +1,6 @@
 FROM alpine:3.24.4@sha256:93b41ef40b1677fce8fcc64ff4af09daddfacf5040afde618bc46c1e2d1cc7d4
 
-# cvs 1.12.13-r3 git 2.54.0-r0 lighttpd 1.4.85-r0 openssh 10.3_p1-r2 runit 2.3.1-r0
+# cvs 1.12.13-r3 git 2.54.1-r0 lighttpd 1.4.85-r0 openssh 10.3_p1-r2 runit 2.3.1-r0
 # major updates are features, other updates are fixes
 RUN apk upgrade --no-cache && \
     apk add --no-cache cvs git lighttpd openssh runit && \
