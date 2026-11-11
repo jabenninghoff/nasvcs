@@ -66,4 +66,12 @@ then
     touch /var/log/lighttpd/access.log && chown lighttpd:lighttpd /var/log/lighttpd/access.log
 fi
 
+entrypoint_log "checking lighttpd configuration"
+lighttpd -tf /etc/lighttpd/lighttpd.conf
+
+entrypoint_log "checking sshd configuration"
+sshd -t
+
+entrypoint_log "entrypoint script complete"
+
 exec "$@"
