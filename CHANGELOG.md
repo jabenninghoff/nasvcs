@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.6](https://github.com/jabenninghoff/nasvcs/compare/v1.4.5...v1.4.6) (2026-11-12)
+
+
+### Bug Fixes
+
+* bump docker/login-action from 4.7.0 to 4.8.0 ([ab7ac53](https://github.com/jabenninghoff/nasvcs/commit/ab7ac536d4efd7cb795e50c8ead88aae70ca5b0d))
+* update alpine packages ([70de892](https://github.com/jabenninghoff/nasvcs/commit/70de892be8d55a3b53525a3a0102264c4c9a165b))
+
 ## [1.4.5](https://github.com/jabenninghoff/nasvcs/compare/v1.4.4...v1.4.5) (2026-11-11)
 
 
