@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.7](https://github.com/jabenninghoff/nasvcs/compare/v1.4.6...v1.4.7) (2026-11-20)
+
+
+### Bug Fixes
+
+* update alpine packages ([a24347d](https://github.com/jabenninghoff/nasvcs/commit/a24347d14a3e8ea79c71bc207ce5773afae7d9db))
+* update cooldown settings ([084a8c5](https://github.com/jabenninghoff/nasvcs/commit/084a8c528ef2628e7f1309af2083d9883b4476a0))
+
 ## [1.4.6](https://github.com/jabenninghoff/nasvcs/compare/v1.4.5...v1.4.6) (2026-11-12)
 
 
